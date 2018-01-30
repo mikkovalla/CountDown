@@ -10,6 +10,7 @@ class App extends Component {
       deadline: '24 December 2018',
       newDeadline: ''
     }
+    //deadline can be changed here
   }
 
   //event handler method
