@@ -12,6 +12,7 @@ class App extends Component {
     }
   }
 
+  //event handler method
   changeDeadline() {
     console.log('state', this.state)
     this.setState({deadline: this.state.newDeadline})
