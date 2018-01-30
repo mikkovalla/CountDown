@@ -22,6 +22,10 @@ componentDidMount() {
   setInterval(() => this.getTimeUntil(this.props.deadline), 1000)
 }
 
+//prefix 0 if clock is 1 digit
+leading0(num) { 
+  return num < 10 ? '0' + num : num
+}
 //function to calculate remaining time to deadline... thanks you stackoverflow...
   getTimeUntil (deadline) {
 
@@ -48,10 +52,10 @@ componentDidMount() {
   render () {
     return (
       <div>
-          <div className="Clock-days">{this.state.days} days</div>
-          <div className="Clock-hours">{this.state.hours} hours</div>
-          <div className="Clock-minutes">{this.state.minutes} minutes</div>
-          <div className="Clock-seconds">{this.state.seconds} seconds</div>
+          <div className="Clock-days">{this.leading0(this.state.days)} days</div>
+          <div className="Clock-hours">{this.leading0(this.state.hours)} hours</div>
+          <div className="Clock-minutes">{this.leading0(this.state.minutes)} minutes</div>
+          <div className="Clock-seconds">{this.leading0(this.state.seconds)} seconds</div>
       </div> 
     )    
   }
