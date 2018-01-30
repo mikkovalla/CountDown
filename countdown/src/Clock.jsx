@@ -32,7 +32,6 @@ constructor(props) {
     //const for days
     const days = Math.floor(time/(1000*60*60*24))
     console.log('days', days, 'hours', hours, 'minutes', minutes, 'seconds', seconds)
-
   }
 
   render () {
