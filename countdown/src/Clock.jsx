@@ -11,7 +11,15 @@ constructor(props) {
     minutes: 0,
     seconds: 0
   }
-  console.log("props :", this.props)
+  //console.log("props :", this.props)
+}
+
+componentWillMount() {
+  this.getTimeUntil(this.props.deadline)
+}
+
+componentDidMount() {
+  setInterval(() => this.getTimeUntil(this.props.deadline), 1000)
 }
 
 //function to calculate remaining time to deadline... thanks you stackoverflow...
@@ -31,11 +39,13 @@ constructor(props) {
     //console.log("hours:", hours)
     //const for days
     const days = Math.floor(time/(1000*60*60*24))
-    console.log('days', days, 'hours', hours, 'minutes', minutes, 'seconds', seconds)
+    //console.log('days', days, 'hours', hours, 'minutes', minutes, 'seconds', seconds)
+
+    //day: days, hours: hours, minutes: minutes, seconds: seconds
+    this.setState({days, hours, minutes, seconds})
   }
 
   render () {
-    this.getTimeUntil(this.props.deadline)
     return (
       <div>
           <div className="Clock-days">{this.state.days} days</div>
