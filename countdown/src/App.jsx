@@ -6,7 +6,7 @@ class App extends Component {
   constructor(props) {
     super(props)
     this.state = {
-      deadline: 'December 25, 2017',
+      deadline: 'December 24, 2018',
       newDeadline: ''
     }
   }
@@ -20,7 +20,9 @@ class App extends Component {
     return (
       <div className="App">
         <div className="App-title">Coundown to {this.state.deadline}</div>
-        <Clock />  
+        <Clock 
+        deadline={this.state.deadline}
+        />  
         <div>
           <input placeholder='new date'
           onChange={event => this.setState({newDeadline: event.target.value})}/>
